@@ -14,3 +14,7 @@ class StockdataItem(scrapy.Item):
 	nav = scrapy.Field() #单位净值(元)
 	acc = scrapy.Field() #累计净值(元)
 	growth = scrapy.Field() #净值增长率
+
+	def __lt__(self, other):
+		return self['date'] < other['date']
+
